@@ -12,6 +12,10 @@ const Slider = () => {
   new Date(evtA.date) - new Date(evtB.date)
 );
 
+const handleRadioChange = (radioIdx) => {
+  setIndex(radioIdx);
+};
+
   const nextCard = () => {
     setIndex((prevIndex) => (prevIndex < byDateDesc.length - 1 ? prevIndex + 1 : 0));
   };
@@ -35,12 +39,13 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((_, radioIdx) => (
+              {byDateDesc.map((e, radioIdx) => (
                 <input
-                key={`${event.id}`}
+                key={`${e.date}`}
                 type="radio"
-                name="radio-button"
+                name={`radio-button-${radioIdx}`} // ajout d'un nom propre a chaque boutons 
                 checked={idx === radioIdx}
+                onChange={() => handleRadioChange(radioIdx)}
               />
               ))}
             </div>
