@@ -21,7 +21,9 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const getData = useCallback(async () => {
     try {
-      setData(await api.loadData());
+      const eventData = await api.loadData();
+      console.log(eventData)
+    setData(eventData)
     } catch (err) {
       setError(err);
     }
@@ -49,5 +51,4 @@ DataProvider.propTypes = {
 }
 
 export const useData = () => useContext(DataContext);
-
 export default DataContext;
