@@ -22,7 +22,6 @@ export const DataProvider = ({ children }) => {
   const getData = useCallback(async () => {
     try {
       const eventData = await api.loadData();
-      console.log(eventData)
     setData(eventData)
     } catch (err) {
       setError(err);
