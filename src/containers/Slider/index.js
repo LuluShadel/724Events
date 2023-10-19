@@ -22,7 +22,7 @@ const handleRadioChange = (radioIdx) => {
 
   useEffect(() => {
     const timer = setTimeout(nextCard, 5000);
-    return () => clearTimeout(timer); // Cleanup the timer when the component unmounts
+    return () => clearTimeout(timer); // empeche le minuteur de s'executer en arrière plan
   }, [index, byDateDesc]);
 
   return (
@@ -41,7 +41,7 @@ const handleRadioChange = (radioIdx) => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((e, radioIdx) => (
                 <input
-                key={`${e.date}`}
+                key={`${e.date}`}// key propre à chaque dot
                 type="radio"
                 name={`radio-button-${radioIdx}`} // ajout d'un nom propre a chaque boutons 
                 checked={idx === radioIdx}

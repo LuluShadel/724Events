@@ -9,6 +9,7 @@ import {
 
 const DataContext = createContext({});
 
+
 export const api = {
   loadData: async () => {
     const json = await fetch("/events.json");
@@ -21,29 +22,37 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const getData = useCallback(async () => {
     try {
-      const eventData = await api.loadData();
-    setData(eventData)
+      setData(await api.loadData())
+
     } catch (err) {
       setError(err);
     }
   }, []);
+
+  const events = data?.events
+  const eventsTrie = events?.sort((evtA, evtB) => (new Date(evtA.date) > new Date(evtB.date) ? -1 : 1))
+  const lastEvent = eventsTrie?.[0]
+
   useEffect(() => {
     if (data) return;
     getData();
   });
   
+
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         data,
-        error,
+        error, 
+        lastEvent,
       }}
     >
       {children}
     </DataContext.Provider>
   );
 };
+
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,

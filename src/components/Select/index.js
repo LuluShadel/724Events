@@ -18,7 +18,7 @@ const Select = ({
   const changeValue = (newValue) => {
     onChange(newValue);// rajout de (newValue) sur onChange la fonction onChange sera appelée avec la nouvelle valeur chaque fois qu'un bouton radio est cliqué.
     setValue(newValue);
-    setCollapsed(newValue);
+    setCollapsed(!collapsed);
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">

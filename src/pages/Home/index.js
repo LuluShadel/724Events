@@ -13,9 +13,15 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-const dataContext = useData()
+  const dataContext = useData();
 
-const { last } = dataContext;
+  if (dataContext.data === null) {
+    // Affichez un indicateur de chargement ou un message en attendant que les données soient chargées
+    return <div>Chargement en cours...</div>;
+  }
+
+  const { lastEvent } = dataContext;
+  console.log(lastEvent);
 
 
 
@@ -126,13 +132,14 @@ const { last } = dataContext;
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         
+        {lastEvent &&(
         <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
+          imageSrc={lastEvent?.cover}
+          title={lastEvent?.title}
+          date={new Date(lastEvent?.date)}
           small
           label="boom"
-        />
+        />)}
         
       </div>
       <div className="col contact">
