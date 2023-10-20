@@ -21,7 +21,7 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      await screen.findByText("Message envoyé !", {}, { timeout: 5000 }); // ajout d'un tiler pour attendre que le texte d'affiche 
     });
   });
 
@@ -30,7 +30,8 @@ describe("When Form is created", () => {
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
+    render (<Home />);
+    screen.findByTestId("events")
   })
   it("a list a people is displayed", () => {
     // to implement

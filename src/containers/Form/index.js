@@ -29,8 +29,8 @@ const Form = ({ onSuccess, onError }) => {
     <form onSubmit={sendContact}>
       <div className="row">
         <div className="col">
-          <Field placeholder="Nom" label="Nom" required />
-          <Field placeholder="Prénom" label="Prénom" required />
+          <Field placeholder="Nom" label="Nom" fieldType= "text" required />
+          <Field placeholder="Prénom" label="Prénom" fieldType="text" required />
           <Select
             selection={["Personel", "Entreprise"]}
             onChange={() => null}
@@ -38,7 +38,7 @@ const Form = ({ onSuccess, onError }) => {
             type="large"
             titleEmpty
           />
-          <Field placeholder="Email" label="Email" required/>
+          <Field placeholder="Email" label="Email" fieldType="email" required/> 
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
             {sending ? "En cours" : "Envoyer"}
           </Button>
