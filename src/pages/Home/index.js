@@ -13,15 +13,10 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const dataContext = useData();
+const dataContext = useData()
 
-  if (dataContext.data === null) {
-    // Affichez un indicateur de chargement ou un message en attendant que les données soient chargées
-    return <div>Chargement en cours...</div>;
-  }
+const { lastEvent } = dataContext;
 
-  const { lastEvent } = dataContext;
-  console.log(lastEvent);
 
 
 
@@ -128,7 +123,7 @@ const Page = () => {
         </Modal>
       </div>
     </main>
-    <footer className="row">
+    <footer data-testid="footer" className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         
