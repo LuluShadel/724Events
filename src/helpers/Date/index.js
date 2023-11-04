@@ -13,5 +13,5 @@ export const MONTHS = {
   12: "décembre",
 };
 
-export const getMonth = (date) => MONTHS [date.getMonth() +1]; 
+export const getMonth = (date) => MONTHS [date.getMonth() +1]; // ajout du +1 pour palier au fait que les tableau commence à 0
   

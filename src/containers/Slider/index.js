@@ -9,7 +9,7 @@ const Slider = () => {
   const [index, setIndex] = useState(0);
 
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-  new Date(evtA.date) - new Date(evtB.date)
+  new Date(evtA.date) - new Date(evtB.date)  // changement a - b pour afficher du plus ancien au plus recent 
 );
 
 const handleRadioChange = (radioIdx) => {

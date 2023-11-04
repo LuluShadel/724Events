@@ -46,7 +46,7 @@ const Form = ({ onSuccess, onError }) => {
         </div>
         <div className="col">
           <Field
-            placeholder="Message"
+            placeholder="Indiquer votre message ici "
             label="Message"
             type={FIELD_TYPES.TEXTAREA}
             required

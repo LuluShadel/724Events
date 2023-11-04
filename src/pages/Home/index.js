@@ -15,7 +15,7 @@ import { useData } from "../../contexts/DataContext";
 const Page = () => {
 const dataContext = useData()
 
-const { lastEvent } = dataContext;
+const { lastEvent } = dataContext; // destructuration de datacontext pour extraire lastEvent 
 
 
 
