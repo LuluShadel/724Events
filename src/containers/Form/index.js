@@ -45,12 +45,12 @@ const Form = ({ onSuccess, onError }) => {
 
         </div>
         <div className="col">
-          <Field
-            placeholder="Indiquer votre message ici "
-            label="Message"
-            type={FIELD_TYPES.TEXTAREA}
-            required
-          />
+        <Field
+      placeholder="Votre message"
+      label="Message"
+      type={FIELD_TYPES.TEXTAREA}
+      required
+      />
         </div>
       </div>
     </form>
